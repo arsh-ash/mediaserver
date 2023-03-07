@@ -4,6 +4,8 @@ const Router=express.Router();
 const path=require("path")
 const multer=require("multer")
 const IMAGES_PATH = path.join("/uploads/images");
+const { getVideoDurationInSeconds } = require('get-video-duration')
+
 var maxSize = 1 * 1000 * 1000;
 
  storage = multer.diskStorage({
@@ -25,17 +27,33 @@ var maxSize = 1 * 1000 * 1000;
 
     const upload=multer({
       storage:storage,
-      limits: { fileSize: maxSize }
+      // limits: { fileSize: maxSize }
 
     })
 
 Router.get("/uploadImages",upload.single("thumbnail"),(req,res)=>{
-    
   
-   return res.status(200).json({
-        message:"routes working fine"
-    })
+  console.log("rebody",req.body)
+  console.log("req.file",req.file);
+  
+  return res.status(200).json({
+    message:"routes working fine",
+    body:req.body.name
+})
+    
+  getVideoDurationInSeconds(req.file.path).then((duration) => {
+    console.log(duration)
+  })
+  
+   
 
+})
+
+Router.get("/getdata",(req,res)=>{
+
+  return res.status(200).json({
+    message:"every thin is fine"
+  })
 })
 
 module.exports=Router;

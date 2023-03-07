@@ -5,7 +5,7 @@ const app = express();
 const port = 8000;
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
-
+// console.log("ENV",process.env.dev.port)
 
 const path = require("path")
 
