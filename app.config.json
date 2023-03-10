@@ -1,8 +1,8 @@
 {
   apps : [
     {
-      name      : "react-app",
-      script    : "npx",
+      name      : "nodejs-app",
+      script    : "npm start",
       interpreter: "none",
       args: "serve -s build -p 8000"
     }
