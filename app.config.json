@@ -1,7 +1,7 @@
 {
   apps : [
     {
-      name      : "nodejs-app",
+      name      : "nodejs-app1",
       script    : "npm start",
       interpreter: "none",
       args: "serve -s build -p 8000"
