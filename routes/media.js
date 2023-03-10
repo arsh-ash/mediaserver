@@ -52,7 +52,7 @@ Router.get("/uploadImages",upload.single("thumbnail"),(req,res)=>{
 Router.get("/getdata",(req,res)=>{
 
   return res.status(200).json({
-    message:"code is changed and response is from jenkins "
+    message:"test 2 for cicd test"
   })
 })
 
